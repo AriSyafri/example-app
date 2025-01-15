@@ -38,12 +38,14 @@ Route::get('/blog', function () {
 $blog_posts = [
     [
         "title" => "Judul Post Pertama",
+        "slug" => "judul-post-pertama",
         "author" => "Ari Syafri",
         "body" => "
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias similique et, sunt temporibus aperiam a voluptate consequatur. Odio autem totam, similique, cum maxime dolores porro amet corporis at quidem expedita temporibus vel minus animi id facilis delectus corrupti, dolorem pariatur beatae. Vel rerum beatae earum exercitationem nisi numquam eveniet consectetur, quia veritatis iste enim ipsa blanditiis praesentium officia? Ipsa, ex soluta autem quos nostrum illo aut eveniet enim vel, sunt vero quae atque! Earum obcaecati, ea deserunt explicabo maiores iusto!"
     ],
     [
         "title" => "Judul Post Kedua",
+        "slug" =>"judul-post-kedua",
         "author" => "Ujang Agus",
         "body" => "
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias similique et, sunt temporibus aperiam a voluptate consequatur. Odio autem totam, similique, cum maxime dolores porro amet corporis at quidem expedita temporibus vel minus animi id facilis delectus corrupti, dolorem pariatur beatae. Vel rerum beatae earum exercitationem nisi numquam eveniet consectetur, quia veritatis iste enim ipsa blanditiis praesentium officia? Ipsa, ex soluta autem quos nostrum illo aut eveniet enim vel, sunt vero quae atque! Earum obcaecati, ea deserunt explicabo maiores iusto!"
@@ -54,5 +56,41 @@ $blog_posts = [
     return view('posts', [
         "title" => "Blog",
         "posts" => $blog_posts
+    ]);
+});
+
+// halaman single post
+Route::get('post/{slug}', function($slug){
+
+    $blog_posts = [
+        [
+            "title" => "Judul Post Pertama",
+            "slug" => "judul-post-pertama",
+            "author" => "Ari Syafri",
+            "body" => "
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias similique et, sunt temporibus aperiam a voluptate consequatur. Odio autem totam, similique, cum maxime dolores porro amet corporis at quidem expedita temporibus vel minus animi id facilis delectus corrupti, dolorem pariatur beatae. Vel rerum beatae earum exercitationem nisi numquam eveniet consectetur, quia veritatis iste enim ipsa blanditiis praesentium officia? Ipsa, ex soluta autem quos nostrum illo aut eveniet enim vel, sunt vero quae atque! Earum obcaecati, ea deserunt explicabo maiores iusto!"
+        ],
+        [
+            "title" => "Judul Post Kedua",
+            "slug" =>"judul-post-kedua",
+            "author" => "Ujang Agus",
+            "body" => "
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias similique et, sunt temporibus aperiam a voluptate consequatur. Odio autem totam, similique, cum maxime dolores porro amet corporis at quidem expedita temporibus vel minus animi id facilis delectus corrupti, dolorem pariatur beatae. Vel rerum beatae earum exercitationem nisi numquam eveniet consectetur, quia veritatis iste enim ipsa blanditiis praesentium officia? Ipsa, ex soluta autem quos nostrum illo aut eveniet enim vel, sunt vero quae atque! Earum obcaecati, ea deserunt explicabo maiores iusto!"
+        ],
+    ];
+
+
+    $new_post = [];
+
+    foreach($blog_posts as $post) {
+        if($post["slug"] === $slug) {
+            $new_post = $post;
+        }
+    }
+
+
+    return view('post', [
+        "title" => "Single Post",
+        "post" =>$new_post
     ]);
 });
