@@ -31,17 +31,16 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/blog', function () {
-
-
+Route::get('/posts', function () {
     return view('posts', [
         "title" => "Blog",
         "posts" => Post::all()
     ]);
+
 });
 
 // halaman single post
-Route::get('post/{slug}', function($slug){
+Route::get('posts/{slug}', function($slug){
 
 
     return view('post', [
