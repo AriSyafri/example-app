@@ -4,7 +4,9 @@
 @section('container')
 
     <h1 class="mb-5">{{ $post->title }}</h1>
-    {{-- {{ $post->body }} --}}
+
+    <p>By. Ari Syafri in {{ $post->category->name }}</p>
+
     {!! $post->body !!}
 
     <a href="/posts">Back to Post</a>
