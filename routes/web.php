@@ -7,6 +7,8 @@ use App\Models\Post;
 
 use App\Models\Category;
 use App\Models\User;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,5 +61,13 @@ Route::get('/authors/{author:username}', function(User $author) {
     return view('posts', [
         'title' => 'User Posts',
         'posts' => $author->posts,
+    ]);
+});
+
+
+Route::get('/authors', function() {
+    return view('authors', [
+        'title' => 'List Authors',
+        'authors' => User::all()
     ]);
 });
