@@ -13,6 +13,7 @@ class Post extends Model
 
     // dijagain gabisa diubah
     protected $guarded = ['id'];
+    protected $with = ['category', 'author'];
 
     public function category()
     {
