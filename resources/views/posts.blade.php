@@ -11,7 +11,7 @@
     @if ($posts->count())
 
         <div class="card mb-3">
-            <img src="/img/prog.jpg" alt="...">
+            <img src="/img/prog.jpg" alt="image">
             <div class="card-body text-center">
             <h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
             <p>
@@ -32,20 +32,29 @@
 
     @endif
 
+    <div class="container">
+        <div class="row">
 
-    @foreach ($posts as $post)
-    <article class="mb-5 border-bottom pb-3" >
-        <h2><a href="/posts/{{ $post->slug }}" class="text-decoration-none">{{ $post->title }}</a></h2>
-
-        <p>By. <a href="/authors/{{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }} </a> in <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p>
+            @foreach($posts->skip(1) as $post)
 
 
-        <p>{{ $post->excerpt }}</p>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="/img/thumb.jpg" class="card-img-top" alt="image">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ $post->title }}</h5>
+                        <small class="text-muted">
+                        By. <a href="/authors/{{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }} </a> {{ $post->created_at->diffForHumans() }}
+                        </small>
+                      <p class="card-text">{{ $post->excerpt }}</p>
+                      <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read more..</a>
+                    </div>
+                </div>
 
-        <a href="/posts/{{ $post->slug }}" class="text-decoration-none">Read more..</a>
+            </div>
 
-    </article>
-
-    @endforeach
+            @endforeach
+        </div>
+    </div>
 
 @endsection
