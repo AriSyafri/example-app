@@ -40,6 +40,7 @@
 
             <div class="col-md-4 mb-3">
                 <div class="card">
+                    <div class="position-absolute px-3 py-2 text-white" style="background-color: rgba(0, 0, 0, 0.7)"><a href="/categories/{{  $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
                     <img src="/img/thumb.jpg" class="card-img-top" alt="image">
                     <div class="card-body">
                       <h5 class="card-title">{{ $post->title }}</h5>
