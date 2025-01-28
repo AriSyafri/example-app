@@ -15,10 +15,10 @@ class Post extends Model
     protected $guarded = ['id'];
     protected $with = ['category', 'author'];
 
-    public function scopeFilter($query) {
-        if(request('search')) {
-            $query->where('title', 'like', '%' . request('search') . '%')
-                ->orWhere('body', 'like', '%' . request('search') . '%');
+    public function scopeFilter($query, array $filters) {
+        if(isset($filters['search']) ? $filters['search'] : false) {
+            $query->where('title', 'like', '%' . $filters['search'] . '%')
+                ->orWhere('body', 'like', '%' . $filters['search'] . '%');
         }
     }
 
