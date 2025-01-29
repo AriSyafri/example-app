@@ -75,8 +75,8 @@ Route::get('/authors/{author:username}', function(User $author) {
 Route::get('/authors', function() {
     return view('authors', [
         'title' => 'List Authors',
-        "active" => 'posts',
-        // 'authors' => User::all()->filter(request(['search', 'author']))->get()
+        "active" => 'authors',
+        'authors' => User::all(),
 
     ]);
 });
