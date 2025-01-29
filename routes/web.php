@@ -66,7 +66,7 @@ Route::get('/categories/{category:slug}', function(Category $category) {
 Route::get('/authors/{author:username}', function(User $author) {
     return view('posts', [
         'title' => "Post By Author : $author->name",
-        "active" => 'authors',
+        "active" => 'posts',
         'posts' => $author->posts->load('category', 'author'),
     ]);
 });
@@ -75,7 +75,8 @@ Route::get('/authors/{author:username}', function(User $author) {
 Route::get('/authors', function() {
     return view('authors', [
         'title' => 'List Authors',
-        "active" => 'authors',
-        'authors' => User::all()
+        "active" => 'posts',
+        // 'authors' => User::all()->filter(request(['search', 'author']))->get()
+
     ]);
 });

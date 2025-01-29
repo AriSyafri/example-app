@@ -16,7 +16,7 @@
 
                 <div class="col-md-4">
 
-                    <a href="/categories/{{ $category->slug }}">
+                    <a href="/posts?category={{ $category->slug }}">
 
                         <div class="card bg-dark text-white">
                             <img src="/img/thumb.jpg" class="card-img" alt="...">
