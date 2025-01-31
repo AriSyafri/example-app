@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
 use App\Models\Post;
-
-
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Category;
+
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
 
 
 /*
@@ -80,3 +81,5 @@ Route::get('/authors', function() {
 
     ]);
 });
+
+Route::get('/login', [LoginController::class, 'index']);
