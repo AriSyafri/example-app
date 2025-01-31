@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
@@ -45,32 +46,7 @@ Route::get('/posts', [PostController::class, 'index']);
 // halaman single post
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/categories', function() {
-    return view('categories', [
-        'title' => 'Post Categories',
-        "active" => 'categories',
-        'categories' => Category::all()
-    ]);
-});
-
-Route::get('/categories/{category:slug}', function(Category $category) {
-    return view('posts', [
-        'title' =>"Post by Category :  $category->name",
-        "active" => 'categories',
-        // 'posts' => $category->posts,
-        'posts' => $category->posts->load('author', 'category'), // true
-
-        // 'posts' => $category->posts->load('category', 'author'),
-    ]);
-});
-
-Route::get('/authors/{author:username}', function(User $author) {
-    return view('posts', [
-        'title' => "Post By Author : $author->name",
-        "active" => 'posts',
-        'posts' => $author->posts->load('category', 'author'),
-    ]);
-});
+Route::get('/categories', [CategoryController::class, 'index']);
 
 
 Route::get('/authors', function() {
