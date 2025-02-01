@@ -9,8 +9,7 @@
         <main class="form-registration">
             <h1 class="h3 mb-3 fw-normal text-center">Registration form</h1>
 
-            <form>
-
+            <form action="/register" method="post">
               <div class="form-floating">
                 <input type="text" class="form-control rounded-top" name="name" id="name" placeholder="name">
                 <label for="name">Name</label>
@@ -26,10 +25,6 @@
               <div class="form-floating">
                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                 <label for="password">Password</label>
-              </div>
-              <div class="form-floating">
-                <input type="password" class="form-control rounded-bottom" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
               </div>
 
               <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Register</button>
