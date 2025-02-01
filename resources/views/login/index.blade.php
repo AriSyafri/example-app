@@ -4,7 +4,7 @@
 @section('container')
 
 <div class="row justify-content-center">
-    <div class="col-md-4">
+    <div class="col-lg-5">
 
         <main class="form-signin">
             <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
