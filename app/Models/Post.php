@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    // yang bisa diisi
-    // protected $fillable = ['title', 'excerpt', 'body'];
 
-    // dijagain gabisa diubah
     protected $guarded = ['id'];
     protected $with = ['category', 'author'];
 
@@ -51,6 +48,10 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
 
 
