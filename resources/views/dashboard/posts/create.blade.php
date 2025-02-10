@@ -10,7 +10,7 @@
 
 <div class="col-lg-8">
 
-    <form method="post" class="col-lg-10" action="/dashboard/posts">
+    <form method="post" action="/dashboard/posts">
 
         @csrf
 
@@ -28,7 +28,7 @@
 
         <div class="mb-3">
           <label for="slug" class="form-label">Slug</label>
-          <input type="text" class="form-control @error('slug') id-invalid @enderror" id="slug" name="slug" disabled readonly required value="{{ old('slug') }}">
+          <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" readonly required value="{{ old('slug') }}">
 
           @error('slug')
           <div class="invalid-feedback">
@@ -41,7 +41,7 @@
 
         <div class="mb-3">
 
-            <label for="category" class="form-label">Category</label>
+            <label for="category_id" class="form-label">Category</label>
             <select class="form-select" name="category_id" id="category_id">
 
                 @foreach ($categories as $category)
