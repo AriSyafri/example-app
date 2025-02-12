@@ -10,7 +10,7 @@
 
 <div class="col-lg-8">
 
-    <form method="post" action="/dashboard/posts" class="mb-5">
+    <form method="post" action="/dashboard/posts" class="mb-5" enctype="multipart/form-data">
 
         @csrf
 
@@ -53,6 +53,11 @@
                 @endforeach
 
               </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="image">Post Image</label>
+            <input type="file" class="form-control" id="image" name="image">
         </div>
 
         <div class="mb-3">
