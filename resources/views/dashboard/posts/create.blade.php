@@ -57,7 +57,16 @@
 
         <div class="mb-3">
             <label class="form-label" for="image">Post Image</label>
-            <input type="file" class="form-control" id="image" name="image">
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
+
+            @error('image')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+
+            @enderror
+
+
         </div>
 
         <div class="mb-3">
