@@ -32,7 +32,17 @@
     @if ($posts->count())
 
         <div class="card mb-3">
-            <img src="/img/prog.jpg" alt="image">
+
+            @if ($posts[0]->image)
+                <div style="max-height: 350px; overflow:hidden;">
+                    <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}" class="img-fluid">
+                </div>
+            @else
+                <img src="/img/prog.jpg" alt="image">
+            @endif
+
+
+
             <div class="card-body text-center">
             <h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
             <p>
@@ -58,7 +68,15 @@
             <div class="col-md-4 mb-3">
                 <div class="card">
                     <div class="position-absolute px-3 py-2 text-white" style="background-color: rgba(0, 0, 0, 0.7)"><a href="/posts?category={{  $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
-                    <img src="/img/thumb.jpg" class="card-img-top" alt="image">
+
+                    @if ($post->image)
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid">
+                    @else
+                        <img src="/img/thumb.jpg" class="card-img-top" alt="image">
+                    @endif
+
+
+
                     <div class="card-body">
                       <h5 class="card-title">{{ $post->title }}</h5>
                         <small class="text-muted">

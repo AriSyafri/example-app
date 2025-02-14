@@ -21,7 +21,14 @@
 
             </form>
 
-            <img src="/img/prog.jpg" alt="{{ $post->category->name }}" class="img-fluid mt-3">
+            @if ($post->image)
+                <div style="max-height: 350px; overflow:hidden;">
+                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
+                </div>
+            @else
+                <img src="/img/prog.jpg" alt="{{ $post->category->name }}" class="img-fluid mt-3">
+            @endif
+
 
             <article class="my-3 fs-6">
                 {!! $post->body !!}
