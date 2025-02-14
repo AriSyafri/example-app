@@ -57,7 +57,7 @@
 
         <div class="mb-3">
             <label class="form-label" for="image">Post Image</label>
-            <img class="img-preview img-fluid mb-3 col-sm-5">
+            <img class="img-preview img-fluid mb-3 col-sm-5 d-block">
             <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()">
 
             @error('image')
