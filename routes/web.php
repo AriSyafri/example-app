@@ -79,6 +79,6 @@ Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'check
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 
 
