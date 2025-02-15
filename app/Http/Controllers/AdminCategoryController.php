@@ -14,7 +14,13 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        return 'ini adalah halaman categories';
+        if(!auth()->check() || auth()->user()->username !== 'ari15') {
+            abort(403);
+        }
+
+        return view('dashboard.categories.index', [
+            'categories' => Category::all()
+        ]);
     }
 
     /**
