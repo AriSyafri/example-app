@@ -1,0 +1,5 @@
+
+
+
+ln -s /home/arik3525/laravelBlog/storage/app/public                 ====== lokasi penyimpanan
+/home/arik3525/public_html/bloglara8.arisyafri.my.id/storage        ====== lokasi penyimpanan yang lokasi duplikat
