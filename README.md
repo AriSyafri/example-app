@@ -1,8 +1,33 @@
 ## Tentang Program
 
-Exampe-app adalah aplikasi ngulik belajar laravel dengan bootrap 5 dan laravel 8
+Example-app adalah aplikasi ngulik belajar laravel dengan bootrap 5 dan laravel 8
+
+## Requirement
+- composer
+- php >= 8.2
+
+## Tech
+- Bootsrap 5.0.2
+- Laravel 8 (php)
+- Js 
+
+## Instalasi
+- Clone the repository `git clone https://github.com/AriSyafri/example-app.git`
+- Install dependencies using the composer. For example run `composer install`
+- buka mysql seperti phpmyadmin dan import db pada file db dengan nama db `exam_blog` di .env
+
+## Authorization 
+- bisa buat akun kembali dengan pass bycript sementara default semua `123456789`
+
+## Kekurangan 
+ada banyak kekurangan yang akan dilanjut jika ingin mengembangkan 
+- kode crud pengguna yang belum dibuat
+- kode crud category yang belum dibuat
+- pengunggahan gambar yang belum diuat pada pengguna dan category
+- tampilan category ada bug jika klik button karena belum melakukan koneksi 
 
 
+##
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
